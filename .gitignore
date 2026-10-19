@@ -1,0 +1,42 @@
+# ---------------------------------------------------------------------------
+# DatenArchiv – .gitignore
+# Zweck: Private/generierte Artefakte NIEMALS ins öffentliche Repository pushen.
+# ---------------------------------------------------------------------------
+
+# --- Von der Anwendung erzeugte Daten (enthalten Pfade/Metadaten = privat) ---
+*.db                    # SQLite-Inventar (inventar.db) – enthält alle Dateipfade
+*.db-journal
+*.db-wal
+*.db-shm
+*.kopierplan.csv        # Kopierplan mit vollständigen Quell-/Zielpfaden
+*.quarantaene.json      # Quarantäne-Protokoll mit Pfaden
+report.html             # HTML-Report – enthält private Ordner-/Dateinamen
+*.report.html
+*.log                   # Log-Dateien (z. B. kopie.log aus robocopy/rsync)
+*.inventar.db           # SQLite-Inventar (inventar.db) – enthält alle Dateipfade
+
+# --- Python: virtuelle Umgebung & Caches ---
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+
+# --- Betriebssystem-Artefakte ---
+.DS_Store               # macOS
+Thumbs.db               # Windows
+desktop.ini
+
+# --- Editor/IDE ---
+.vscode/
+.idea/
+*.swp
+
+# --- Zugangsdaten / Secrets (Sicherheitsnetz) ---
+.env
+*.secret
+rclone.conf            # rclone-Konfiguration enthält OAuth-Tokens!
